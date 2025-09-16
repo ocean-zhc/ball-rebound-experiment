@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>球的反弹高度实验记录</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>球的反弹高度实验记录</h1>
+
+    <div class="container">
+        <div class="group-selection">
+            <div>
+                <label for="group-selector">请选择您的小组:</label>
+                <select id="group-selector">
+                    <option value="第一组">第一组</option>
+                    <option value="第二组">第二组</option>
+                    <option value="第三组">第三组</option>
+                    <option value="第四组">第四组</option>
+                </select>
+            </div>
+            <h2 id="current-group-display">当前记录小组: 第一组</h2>
+            <button id="reset-data-button">重置所有数据</button>
+        </div>
+
+        <div class="experiment">
+            <h3>实验探究一: 同高不同球</h3>
+            <p>说明：在下表中输入数据，下方的折线图将会动态更新。</p>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>（  气排  ）球</th>
+                            <th>1号球</th>
+                            <th>2号球</th>
+                            <th>3号球</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-1">
+                        <tr>
+                            <td><strong>下落高度 (cm)</strong></td>
+                            <td><input type="number" value="130" oninput="syncFallHeights(this); updateExperiment1();"></td>
+                            <td><input type="number" value="130" oninput="updateExperiment1()"></td>
+                            <td><input type="number" value="130" oninput="updateExperiment1()"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>反弹高度 (cm)</strong></td>
+                            <td><input type="number" value="89" oninput="updateExperiment1()"></td>
+                            <td><input type="number" value="61.4" oninput="updateExperiment1()"></td>
+                            <td><input type="number" value="42" oninput="updateExperiment1()"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>反弹高度 / 下落高度</strong></td>
+                            <td>0.68</td>
+                            <td>0.47</td>
+                            <td>0.32</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="chart-container">
+                <canvas id="chart-1"></canvas>
+            </div>
+        </div>
+
+        <div class="experiment">
+            <h3>实验探究二: 同球不同高</h3>
+            <p>说明：在下表中输入数据，下方的折线图将会动态更新。</p>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>（气排）球</th>
+                            <th>第一次实验</th>
+                            <th>第二次实验</th>
+                            <th>第三次实验</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-2">
+                        <tr>
+                            <td><strong>下落高度 (cm)</strong></td>
+                            <td><input type="number" value="130" oninput="updateExperiment2()"></td>
+                            <td><input type="number" value="110" oninput="updateExperiment2()"></td>
+                            <td><input type="number" value="90" oninput="updateExperiment2()"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>反弹高度 (cm)</strong></td>
+                            <td><input type="number" value="89" oninput="updateExperiment2()"></td>
+                            <td><input type="number" value="76" oninput="updateExperiment2()"></td>
+                            <td><input type="number" value="60" oninput="updateExperiment2()"></td>
+                        </tr>
+                        <tr>
+                            <td><strong>反弹高度 / 下落高度</strong></td>
+                            <td>0.68</td>
+                            <td>0.69</td>
+                            <td>0.67</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="chart-container">
+                <canvas id="chart-2"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
